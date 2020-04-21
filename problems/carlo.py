@@ -20,7 +20,7 @@ class NYCAirbnbListings():
         keys: Neighborhood group name (string)
             values: total listings (integer)
         """
-        return None
+        pass
 
     @classmethod
     def average_neighborhood_info(cls, filename):
@@ -35,7 +35,7 @@ class NYCAirbnbListings():
             values (integer) - average number of reviews, price,
                 and availability of listings in that neighborhood
         """
-        return None
+        pass
 
 def main():
     """
