@@ -3,7 +3,11 @@ carlo.py
 Contains methods that will process the air_bnb dataset
 Carlo Capuz
 Created 4/18/2020
+Updated 4/24/2020
 """
+
+# import mean - to use the mean()
+from statistics import mean
 
 class NYCAirbnbListings():
     """
@@ -20,7 +24,6 @@ class NYCAirbnbListings():
         keys: Neighborhood group name (string)
             values: total listings (integer)
         """
-        pass
 
     @classmethod
     def average_neighborhood_info(cls, filename):
@@ -32,34 +35,25 @@ class NYCAirbnbListings():
             information
         Returns: Dictionary
             keys (string) - neighborhood
-            values (integer) - average number of reviews, price,
-                and availability of listings in that neighborhood
+            values (integer) - average price of the neighborhood
         """
-        pass
 
 def main():
     """
     Contains testing cases for the two methods of NYCAirbnbListings() class
     """
-
-    filename = 'air_bnb.csv'
+    # csv file that contains 10 entries
+    filename_10 = 'air_bnb_10_data.csv'
+    # csv file that contains 25 entries
+    filename_25 = 'air_bnb_25_data.csv'
 
     # Testing cases for total_listings_in_neighborhood_group()
-    result_total = NYCAirbnbListings.total_listings_in_neighborhood_group(filename)
+    result_total_10 = NYCAirbnbListings.total_listings_in_neighborhood_group(filename_10)
+    result_total_25 = NYCAirbnbListings.total_listings_in_neighborhood_group(filename_25)
     # Output will say how many listings there are in Brooklyn
-    print(result_total['Brooklyn'])
-    # Output will say how many listings there are in each neighborhood
-    # groups
-    print(result_total)
-
-    # Testing cases for total_listings_in_neighborhood_group()
-    result_info = NYCAirbnbListings.average_neighborhood_info(filename)
-    # Output will display average price, average number of reviews and
-    # average availability of this neighborhood.
-    print(result_info['Kensington'])
-    # This will display all the neighborhoods' average price, number of
-    # reviews and availability
-    print(result_info)
+    print('There are ' + str(result_total_10['Brooklyn']) + ' Airbnb listings in Brooklyn.')
+    # Output will say how many listings there are in each neighborhood groups
+    print(str(result_total_25) + '\n')
 
 if __name__ == '__main__':
     main()
