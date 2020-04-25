@@ -24,6 +24,35 @@ class NYCAirbnbListings():
         keys: Neighborhood group name (string)
             values: total listings (integer)
         """
+        
+        # Define and initialize our accumulator
+        # Initial value is an empty dictionary
+        total_listings = {}
+        # Open and read the filename that's passed in the function. Set it as
+        # data, so it's easier to call.
+        with open(filename, encoding="utf8") as data:
+            # Iterate through each line of the data.
+            # Start the reading on the second line of the file. The first line
+            # of the file is the header, so we need to skip it.
+            for line in data.readlines()[1:]:
+                # Split the line by commas, so we can access each element in
+                # the data.
+                splitted_data = line.split(',')
+                # Get the neighborhood group by accessing the element
+                neighborhood_group = splitted_data[4]
+                # Construct the dictionary
+                # Check to see if the key neighborhood_group is not in the
+                # dictionary
+                if neighborhood_group not in total_listings:
+                    # If it's not in the dictionary, initialize the key's value
+                    # by 1
+                    total_listings[neighborhood_group] = 1
+                else:
+                    # If it's in the dictionary, increment its value by 1
+                    total_listings[neighborhood_group] += 1
+        # return the accumulator
+        return total_listings
+
 
     @classmethod
     def average_neighborhood_info(cls, filename):
@@ -46,14 +75,23 @@ def main():
     filename_10 = 'air_bnb_10_data.csv'
     # csv file that contains 25 entries
     filename_25 = 'air_bnb_25_data.csv'
+    # csv file that contains the whole data
+    filename = 'air_bnb.csv'
 
     # Testing cases for total_listings_in_neighborhood_group()
     result_total_10 = NYCAirbnbListings.total_listings_in_neighborhood_group(filename_10)
     result_total_25 = NYCAirbnbListings.total_listings_in_neighborhood_group(filename_25)
+    result_total = NYCAirbnbListings.total_listings_in_neighborhood_group(filename)
     # Output will say how many listings there are in Brooklyn
-    print('There are ' + str(result_total_10['Brooklyn']) + ' Airbnb listings in Brooklyn.')
+    print('Testing a specific neighborhood group')
+    print('There are ' + str(result_total_10['Brooklyn']) + ' Airbnb listings in Brooklyn.\n')
     # Output will say how many listings there are in each neighborhood groups
-    print(str(result_total_25) + '\n')
+    print('Testing 10 entries of data')
+    print(result_total_10)
+    print('\nTesting 25 entries of data')
+    print(result_total_25)
+    print('\nTesting the whole data')
+    print(result_total)
 
 if __name__ == '__main__':
     main()
