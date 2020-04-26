@@ -72,6 +72,7 @@ Accumulation Pattern
             will let us access the keys and values of the dictionary.
             * construct the accumulator's keys and values by setting its key as
                 the neighborhood and its value with the average of the list of
-                prices.
+                prices. We're going to import mean from statistics to be able to
+                use the mean() to get the average of the list.
 * Return **average_price**
 
