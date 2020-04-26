@@ -6,6 +6,7 @@ Created date : 4/18/2020
 updated date : 4/26/2020
 """
 
+
 class NYCAirbnbListings():
     """
     Contains functions that transforms data from the Airbnb dataset.
@@ -140,8 +141,8 @@ def main():
     # neighborhood group
     filename = 'air_bnb.csv'
     actual_result = NYCAirbnbListings.average_price_by_room_type(filename)
-    #result = actual_result['Private room']
-    #print(f'average price of Private room returns {actual_result}')
+    # result = actual_result['Private room']
+    # print(f'average price of Private room returns {actual_result}')
 
 
 if __name__ == '__main__':
