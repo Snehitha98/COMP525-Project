@@ -7,7 +7,7 @@ Updated 4/24/2020
 """
 
 # import mean - to use the mean()
-from statistics import mean
+#from statistics import mean
 
 class NYCAirbnbListings():
     """
@@ -24,7 +24,7 @@ class NYCAirbnbListings():
         keys: Neighborhood group name (string)
             values: total listings (integer)
         """
-        
+
         # Define and initialize our accumulator
         # Initial value is an empty dictionary
         total_listings = {}
@@ -82,7 +82,7 @@ def main():
     result_total_1 = NYCAirbnbListings.total_listings_in_neighborhood_group(filename_1)
     result_total_25 = NYCAirbnbListings.total_listings_in_neighborhood_group(filename_25)
     result_total = NYCAirbnbListings.total_listings_in_neighborhood_group(filename)
-    
+
     # Output will say how many listings there are in each neighborhood groups
     print('Testing 1 entry of data')
     print(result_total_1)

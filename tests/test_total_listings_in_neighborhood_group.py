@@ -43,7 +43,8 @@ class TestTotalListingsInNeighborhoodGroup(unittest.TestCase):
         nyc_airbnb_listing = NYCAirbnbListings()
         filename = "air_bnb.csv"
         actual_result = nyc_airbnb_listing.total_listings_in_neighborhood_group(filename)
-        expected_result = {'"Brooklyn"': 20104, '"Manhattan"': 21661, '"Queens"': 5666, '"Staten Island"': 373, '"Bronx"': 1091}
+        expected_result = {'"Brooklyn"': 20104, '"Manhattan"': 21661, '"Queens"': 5666,
+                           '"Staten Island"': 373, '"Bronx"': 1091}
         self.assertDictEqual(actual_result, expected_result)
 
 if __name__ == '__main__':
