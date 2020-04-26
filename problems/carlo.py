@@ -55,10 +55,9 @@ class NYCAirbnbListings():
 
 
     @classmethod
-    def average_neighborhood_info(cls, filename):
+    def average_neighborhood_price(cls, filename):
         """
-        The function calculates the average price, average number of reviews,
-            and average availability per year of the listings of each
+        The function calculates the average price of the listings of each
             neighborhood
         Input: filename - csv file that contains the Airbnb listings
             information
@@ -78,6 +77,7 @@ def main():
     # csv file that contains the whole data
     filename = 'air_bnb.csv'
 
+    # total_listings_in_neighborhood_group()
     # Calls for total_listings_in_neighborhood_group()
     result_total_1 = NYCAirbnbListings.total_listings_in_neighborhood_group(filename_1)
     result_total_25 = NYCAirbnbListings.total_listings_in_neighborhood_group(filename_25)
@@ -90,6 +90,19 @@ def main():
     print(result_total_25)
     print('\nTesting the whole data')
     print(result_total)
+
+    # average_neighborhood_price()
+    result_price_1 = NYCAirbnbListings.average_neighborhood_price(filename_1)
+    result_price_25 = NYCAirbnbListings.average_neighborhood_price(filename_25)
+    result_price = NYCAirbnbListings.average_neighborhood_price(filename)
+
+    # Output will display the average prices in each neighborhoods
+    print('Testing 1 entry of data')
+    print(result_price_1)
+    print('\nTesting 25 entries of data')
+    print(result_price_25)
+    print('\nTesting the whole data')
+    print(result_price)
 
 if __name__ == '__main__':
     main()
