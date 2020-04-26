@@ -22,6 +22,36 @@ class NYCAirbnbListings():
            keys : string - neighborhood group
            values : list - name, price, neighborhood of that neighborhood group
         """
+        file_ref = open(filename, 'r')
+        list_of_reviews_d = {}
+        for line in file_ref.readlines()[1:]:
+            line_row = line.split(',')
+            neighborhood_grp = line_row[4]
+            reviews = line_row[11]
+            if neighborhood_grp in list_of_reviews_d:
+                list_of_reviews_d[neighborhood_grp].append(reviews)
+            else:
+                list_of_reviews_d[neighborhood_grp] = [reviews]
+        file_ref.close()
+        highest_review_d = {}
+        for neighborhood_grp in list_of_reviews_d:
+            str_to_int = list(map(int, list_of_reviews_d[neighborhood_grp]))
+            highest_review_d[neighborhood_grp] = max(str_to_int)
+        result_d = {}
+        file_ref = open(filename, 'r')
+        for line in file_ref.readlines()[1:]:
+            line_row = line.split(',')
+            name = line_row[1]
+            neighborhood_grp = line_row[4]
+            neighborhood = line_row[5]
+            price = line_row[9]
+            reviews = line_row[11]
+            for key in highest_review_d:
+                if reviews == str(highest_review_d[key]):
+                    if neighborhood_grp == key:
+                        result_d[key] = [name] + [price] + [neighborhood]
+        file_ref.close()
+        return result_d
 
     @classmethod
     def average_price_by_room_type(cls, filename):
@@ -65,7 +95,7 @@ def main():
     actual_result = NYCAirbnbListings.highest_reviewed_listing(filename)
     print(f'highest reviewed listing in {filename}')
     print(f'Actual: {actual_result}')
-    # print(f'Expected: {expected_result}')
+    print(f'Expected: {expected_result}')
     # test case 3 with whole dataset
     print('\n****Test case:3****')
     filename = 'air_bnb.csv'
@@ -110,8 +140,8 @@ def main():
     # neighborhood group
     filename = 'air_bnb.csv'
     actual_result = NYCAirbnbListings.average_price_by_room_type(filename)
-    result = actual_result['Private room']
-    print(f'average price of Private room returns {actual_result}')
+    #result = actual_result['Private room']
+    #print(f'average price of Private room returns {actual_result}')
 
 
 if __name__ == '__main__':
