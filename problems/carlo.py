@@ -71,23 +71,21 @@ def main():
     """
     Contains testing cases for the two methods of NYCAirbnbListings() class
     """
-    # csv file that contains 10 entries
-    filename_10 = 'air_bnb_10_data.csv'
+    # csv file that contains 1 entry
+    filename_1 = 'air_bnb_1_data.csv'
     # csv file that contains 25 entries
     filename_25 = 'air_bnb_25_data.csv'
     # csv file that contains the whole data
     filename = 'air_bnb.csv'
 
-    # Testing cases for total_listings_in_neighborhood_group()
-    result_total_10 = NYCAirbnbListings.total_listings_in_neighborhood_group(filename_10)
+    # Calls for total_listings_in_neighborhood_group()
+    result_total_1 = NYCAirbnbListings.total_listings_in_neighborhood_group(filename_1)
     result_total_25 = NYCAirbnbListings.total_listings_in_neighborhood_group(filename_25)
     result_total = NYCAirbnbListings.total_listings_in_neighborhood_group(filename)
-    # Output will say how many listings there are in Brooklyn
-    print('Testing a specific neighborhood group')
-    print('There are ' + str(result_total_10['Brooklyn']) + ' Airbnb listings in Brooklyn.\n')
+    
     # Output will say how many listings there are in each neighborhood groups
-    print('Testing 10 entries of data')
-    print(result_total_10)
+    print('Testing 1 entry of data')
+    print(result_total_1)
     print('\nTesting 25 entries of data')
     print(result_total_25)
     print('\nTesting the whole data')
