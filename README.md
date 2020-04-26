@@ -10,7 +10,7 @@ def total_listings_in_neighborhood_group(cls, filename):
             values: total listings (integer)
         """
 ```
-Accumulation Pattern
+## Accumulation Pattern
 * We're going to use accumulation pattern to be able to get the data needed for
     our output.
 * First, we need to declare and initialize our accumulator named
@@ -45,7 +45,7 @@ def average_neighborhood_price(cls, filename):
             values (integer) - average price of the neighborhood
         """
 ```
-Accumulation Pattern
+## Accumulation Pattern
 * We're going to use accumulation pattern to accumulate the necessary data for
     our output.
 * First, we need to define and initialize our accumulator called
