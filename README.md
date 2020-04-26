@@ -240,6 +240,3 @@ def average_neighborhood_price(cls, filename):
                 prices. We're going to import mean from statistics to be able to
                 use the mean() to get the average of the list.
 * Return **average_price**
-
-
->>>>>>> f4aafb300c4b3202eb6dddbbeda77e9d0fe4f803
