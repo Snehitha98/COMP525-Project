@@ -102,7 +102,7 @@ def average_price_by_room_type(cls, filename):
               contains Airbnb listings.
       Returns Dictionary
          keys : string – room type
-         values : integer - average price
+         values : float - average price
       """
 ```
 #### Setting up first accumulator
@@ -207,7 +207,7 @@ def average_neighborhood_price(cls, filename):
             information
         Returns: Dictionary
             keys (string) - neighborhood
-            values (integer) - average price of the neighborhood
+            values (float) - average price of the neighborhood
         """
 ```
 ## Accumulation Pattern
