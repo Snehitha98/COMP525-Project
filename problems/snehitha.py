@@ -7,6 +7,7 @@ updated date : 4/26/2020
 """
 import statistics
 
+
 class NYCAirbnbListings():
     """
     Contains functions that transforms data from the Airbnb dataset.
@@ -83,6 +84,7 @@ class NYCAirbnbListings():
             average_price_d[room_type] = avg_price
         file_ref.close()
         return average_price_d
+
 
 def main():
     """
