@@ -125,24 +125,47 @@ def main():
 
     # testing cases for average_price_by_room_type()
 
-    # test case 1 with whole dataset
-    filename = 'air_bnb.csv'
-    actual_result = NYCAirbnbListings.average_price_by_room_type(filename)
-    print(f'average price by room type in {filename} returns {actual_result}')
-    # test case 2 with one entry
+    # test case 5 with one entry
+    print('\n****Test case:5****')
     filename = 'avgprice1.csv'
+    expected_result = {'"Private room"': 149}
     actual_result = NYCAirbnbListings.average_price_by_room_type(filename)
-    print(f'average price by room type in {filename} returns {actual_result}')
-    # test case 3 with five entries
+    print(f'average price by room type in {filename}')
+    print(f'Actual: {actual_result}')
+    print(f'Expected: {expected_result}')
+    # test case 6 with five entries
+    print('\n****Test case:6****')
     filename = 'avgprice2.csv'
+    expected_result = {
+        '"Private room"': 149.5,
+        '"Entire home/apt"': 131.33
+    }
     actual_result = NYCAirbnbListings.average_price_by_room_type(filename)
-    print(f'average price by room type in {filename} returns {actual_result}')
-    # test case 4 to display the average price of Private room in each
-    # neighborhood group
+    print(f'average price by room type in {filename}')
+    print(f'Actual: {actual_result}')
+    print(f'Expected: {expected_result}')
+    # test case 7 with whole dataset
+    print('\n****Test case:7****')
     filename = 'air_bnb.csv'
+    expected_result = {
+        '"Private room"': 89.78,
+        '"Entire home/apt"': 211.79,
+        '"Shared room"': 70.13
+    }
     actual_result = NYCAirbnbListings.average_price_by_room_type(filename)
-    # result = actual_result['Private room']
-    # print(f'average price of Private room returns {actual_result}')
+    print(f'average price by room type in {filename}')
+    print(f'Actual: {actual_result}')
+    print(f'Expected: {expected_result}')
+    # test case 8 to display the average price of Private room in each
+    # neighborhood group
+    print('\n****Test case:8****')
+    # filename = 'air_bnb.csv'
+    # expected_result = 89.78
+    # actual_result = NYCAirbnbListings.average_price_by_room_type(filename)
+    # actual_result = actual_result['"Private room"']
+    # print(f'average price of Private room in {filename}')
+    # print(f'Actual: {actual_result}')
+    # print(f'Expected: {expected_result}')
 
 
 if __name__ == '__main__':
