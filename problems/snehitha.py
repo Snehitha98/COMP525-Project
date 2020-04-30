@@ -5,7 +5,7 @@ Snehitha Mamidi
 Created date : 4/18/2020
 updated date : 4/26/2020
 """
-
+import statistics
 
 class NYCAirbnbListings():
     """
@@ -64,9 +64,25 @@ class NYCAirbnbListings():
            keys : string – room type
            values : Dictionary
                      keys : string – neighborhood group
-                     values : integer – average price
+                     values : float – average price
         """
-
+        file_ref = open(filename, 'r')
+        prices_by_room_type_d = {}
+        for line in file_ref.readlines()[1:]:
+            line_row = line.split(',')
+            price = line_row[9]
+            room_type = line_row[8]
+            if room_type in prices_by_room_type_d:
+                prices_by_room_type_d[room_type].append(price)
+            else:
+                prices_by_room_type_d[room_type] = [price]
+        average_price_d = {}
+        for room_type in prices_by_room_type_d:
+            str_to_int = list(map(int, prices_by_room_type_d[room_type]))
+            avg_price = round(statistics.mean(str_to_int), 2)
+            average_price_d[room_type] = avg_price
+        file_ref.close()
+        return average_price_d
 
 def main():
     """
@@ -159,13 +175,13 @@ def main():
     # test case 8 to display the average price of Private room in each
     # neighborhood group
     print('\n****Test case:8****')
-    # filename = 'air_bnb.csv'
-    # expected_result = 89.78
-    # actual_result = NYCAirbnbListings.average_price_by_room_type(filename)
-    # actual_result = actual_result['"Private room"']
-    # print(f'average price of Private room in {filename}')
-    # print(f'Actual: {actual_result}')
-    # print(f'Expected: {expected_result}')
+    filename = 'air_bnb.csv'
+    expected_result = 89.78
+    actual_result = NYCAirbnbListings.average_price_by_room_type(filename)
+    actual_result = actual_result['"Private room"']
+    print(f'average price of Private room in {filename}')
+    print(f'Actual: {actual_result}')
+    print(f'Expected: {expected_result}')
 
 
 if __name__ == '__main__':
