@@ -19,7 +19,7 @@ class TestTotalListingsInNeighborhoodGroup(unittest.TestCase):
         """
 
         nyc_airbnb_listing = NYCAirbnbListings()
-        filename_1 = "air_bnb_1_data.csv"
+        filename_1 = "data/air_bnb_1_data.csv"
         actual_result = nyc_airbnb_listing.total_listings_in_neighborhood_group(filename_1)
         expected_result = {'Manhattan': 1}
         self.assertDictEqual(actual_result, expected_result)
@@ -30,7 +30,7 @@ class TestTotalListingsInNeighborhoodGroup(unittest.TestCase):
         """
 
         nyc_airbnb_listing = NYCAirbnbListings()
-        filename_25 = "air_bnb_25_data.csv"
+        filename_25 = "data/air_bnb_25_data.csv"
         actual_result = nyc_airbnb_listing.total_listings_in_neighborhood_group(filename_25)
         expected_result = {'Brooklyn': 12, 'Manhattan': 13}
         self.assertDictEqual(actual_result, expected_result)
@@ -41,7 +41,7 @@ class TestTotalListingsInNeighborhoodGroup(unittest.TestCase):
         """
 
         nyc_airbnb_listing = NYCAirbnbListings()
-        filename = "air_bnb.csv"
+        filename = "data/air_bnb.csv"
         actual_result = nyc_airbnb_listing.total_listings_in_neighborhood_group(filename)
         expected_result = {'"Brooklyn"': 20104, '"Manhattan"': 21661, '"Queens"': 5666,
                            '"Staten Island"': 373, '"Bronx"': 1091}
