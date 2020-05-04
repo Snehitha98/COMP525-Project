@@ -31,6 +31,8 @@ def total_listings_in_neighborhood_group(cls, filename):
             * Check to see if **neighborhood_group** is not in the dicitonary.
                 * If it's not there, initialize its key and its value by 1.
                 * If it is there, increment its value by 1.
+* Write **total_listings** in a csv file so we can turn our output into a
+    dataframe and use Altair to construct a graph.
 * Return **total_listings**
 
 # average_neighborhood_price()
@@ -75,6 +77,8 @@ def average_neighborhood_price(cls, filename):
                 the neighborhood and its value with the average of the list of
                 prices. We're going to import mean from statistics to be able to
                 use the mean() to get the average of the list.
+* Write **average_price** in a csv file so we can turn our output into a
+        dataframe and use Altair to construct a graph.
 * Return **average_price**
 
 =======
