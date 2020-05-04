@@ -23,7 +23,7 @@ class NYCAirbnbListings():
            keys : string - neighborhood group
            values : list - name, price, neighborhood of that neighborhood group
         """
-        file_ref = open(filename, 'r')
+        file_ref = open(filename, encoding="utf8")
         list_of_reviews_d = {}
         for line in file_ref.readlines()[1:]:
             line_row = line.split(',')
@@ -39,7 +39,7 @@ class NYCAirbnbListings():
             str_to_int = list(map(int, list_of_reviews_d[neighborhood_grp]))
             highest_review_d[neighborhood_grp] = max(str_to_int)
         result_d = {}
-        file_ref = open(filename, 'r')
+        file_ref = open(filename, encoding="utf8")
         for line in file_ref.readlines()[1:]:
             line_row = line.split(',')
             name = line_row[1]
