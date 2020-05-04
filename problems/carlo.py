@@ -8,6 +8,7 @@ Updated 4/24/2020
 
 # import mean - to use the mean()
 from statistics import mean
+import csv
 
 class NYCAirbnbListings():
     """
@@ -54,6 +55,13 @@ class NYCAirbnbListings():
                 else:
                     # If it's in the dictionary, increment its value by 1
                     total_listings[neighborhood_group] += 1
+        # Write the output to a csv file
+        f = open('output/total_listings.csv', 'w', newline='')
+        writer = csv.writer(f)
+        writer.writerow(['Neighborhood Group', 'Number of Listings'])
+        for neighborhood_group, count in total_listings.items():
+            writer.writerow([neighborhood_group, count])
+        f.close()
         # return the accumulator
         return total_listings
 
@@ -113,19 +121,27 @@ class NYCAirbnbListings():
                 # price of the list.
                 # round the price to 2 decimal places using round()
                 average_price[neighborhood] = round(average, 2)
+        # Write to a csv file
+        f = open('output/average_price.csv', 'w', newline='')
+        writer = csv.writer(f)
+        writer.writerow(['Neighborhood', 'Average Price'])
+        for neighborhood, average in average_price.items():
+            writer.writerow([neighborhood, average])
+        f.close()
         # return the accumulator average_price
         return average_price
+
 
 def main():
     """
     Contains testing cases for the two methods of NYCAirbnbListings() class
     """
     # csv file that contains 1 entry
-    filename_1 = 'air_bnb_1_data.csv'
+    filename_1 = 'data/air_bnb_1_data.csv'
     # csv file that contains 25 entries
-    filename_25 = 'air_bnb_25_data.csv'
+    filename_25 = 'data/air_bnb_25_data.csv'
     # csv file that contains the whole data
-    filename = 'air_bnb.csv'
+    filename = 'data/air_bnb.csv'
 
     # total_listings_in_neighborhood_group()
     # Calls for total_listings_in_neighborhood_group()
@@ -155,6 +171,6 @@ def main():
     print(result_price_25)
     print('\nTesting the whole data')
     print(result_price)
-
+    
 if __name__ == '__main__':
     main()
