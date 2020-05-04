@@ -80,9 +80,6 @@ def average_neighborhood_price(cls, filename):
         dataframe and use Altair to construct a graph.
 * Return **average_price**
 
-=======
-=======
->>>>>>> eb74622b18ba8f1fb55a4acf256b139e20363a62
 ### Method: highest_reviewed_listing()
 ```
 def highest_reviewed_listing(cls, filename):
