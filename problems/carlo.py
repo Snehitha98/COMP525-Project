@@ -56,12 +56,12 @@ class NYCAirbnbListings():
                     # If it's in the dictionary, increment its value by 1
                     total_listings[neighborhood_group] += 1
         # Write the output to a csv file
-        f = open('output/total_listings.csv', 'w', newline='')
-        writer = csv.writer(f)
+        f_writer = open('output/total_listings.csv', 'w', newline='')
+        writer = csv.writer(f_writer)
         writer.writerow(['Neighborhood Group', 'Number of Listings'])
         for neighborhood_group, count in total_listings.items():
             writer.writerow([neighborhood_group, count])
-        f.close()
+        f_writer.close()
         # return the accumulator
         return total_listings
 
@@ -77,7 +77,7 @@ class NYCAirbnbListings():
             keys (string) - neighborhood
             values (integer) - average price of the neighborhood
         """
-        
+
         # Define and initialize accumulator
         # Initial value is an empty dictionary
         # Final output will be key - neighborhood
@@ -104,7 +104,7 @@ class NYCAirbnbListings():
                 # Construct the temporary dictionary
                 # Check to see if neighborhood is not in the dictionary.
                 if neighborhood not in neighborhood_prices:
-                    # If it's not yet in the dictionary, initialize the key 
+                    # If it's not yet in the dictionary, initialize the key
                     # (neighborhood) with a value of empty list.
                     neighborhood_prices[neighborhood] = []
                 # Append the price to its key's value
@@ -122,12 +122,12 @@ class NYCAirbnbListings():
                 # round the price to 2 decimal places using round()
                 average_price[neighborhood] = round(average, 2)
         # Write to a csv file
-        f = open('output/average_price.csv', 'w', newline='')
-        writer = csv.writer(f)
+        f_writer = open('output/average_price.csv', 'w', newline='')
+        writer = csv.writer(f_writer)
         writer.writerow(['Neighborhood', 'Average Price'])
         for neighborhood, average in average_price.items():
             writer.writerow([neighborhood, average])
-        f.close()
+        f_writer.close()
         # return the accumulator average_price
         return average_price
 
@@ -171,6 +171,6 @@ def main():
     print(result_price_25)
     print('\nTesting the whole data')
     print(result_price)
-    
+
 if __name__ == '__main__':
     main()
