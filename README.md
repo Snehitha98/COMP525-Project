@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # total_listings_in_neighborhood_group()
 ```
 def total_listings_in_neighborhood_group(cls, filename):
@@ -82,6 +81,8 @@ def average_neighborhood_price(cls, filename):
 * Return **average_price**
 
 =======
+=======
+>>>>>>> eb74622b18ba8f1fb55a4acf256b139e20363a62
 ### Method: highest_reviewed_listing()
 ```
 def highest_reviewed_listing(cls, filename):
@@ -186,7 +187,7 @@ def average_price_by_room_type(cls, filename):
               contains Airbnb listings.
       Returns Dictionary
          keys : string – room type
-         values : integer - average price
+         values : float - average price
       """
 ```
 #### Setting up first accumulator
@@ -291,7 +292,7 @@ def average_neighborhood_price(cls, filename):
             information
         Returns: Dictionary
             keys (string) - neighborhood
-            values (integer) - average price of the neighborhood
+            values (float) - average price of the neighborhood
         """
 ```
 ## Accumulation Pattern
@@ -324,6 +325,3 @@ def average_neighborhood_price(cls, filename):
                 prices. We're going to import mean from statistics to be able to
                 use the mean() to get the average of the list.
 * Return **average_price**
-
-
->>>>>>> f4aafb300c4b3202eb6dddbbeda77e9d0fe4f803
