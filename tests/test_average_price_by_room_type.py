@@ -3,6 +3,7 @@ test_average_price_by_room_type.py
 Test cases to verify test_average_price_by_room_type.py
 Snehitha Mamidi
 created date: 04/29/2020
+updated date: 05/06/2020
 """
 import unittest
 from problems.snehitha import NYCAirbnbListings
@@ -19,7 +20,8 @@ class TestAveragePriceByRoomType(unittest.TestCase):
         avgprice1.csv
         """
         test_case = NYCAirbnbListings()
-        actual_result = test_case.average_price_by_room_type('avgprice1.csv')
+        filename = 'data/avgprice1.csv'
+        actual_result = test_case.average_price_by_room_type(filename)
         expected_result = {'"Private room"': 149}
         self.assertDictEqual(actual_result, expected_result)
 
@@ -29,7 +31,8 @@ class TestAveragePriceByRoomType(unittest.TestCase):
         avgprice2.csv"
         """
         test_case = NYCAirbnbListings()
-        actual_result = test_case.average_price_by_room_type('avgprice2.csv')
+        filename = 'data/avgprice2.csv'
+        actual_result = test_case.average_price_by_room_type(filename)
         expected_result = {
             '"Private room"': 149.5,
             '"Entire home/apt"': 131.33
@@ -42,7 +45,8 @@ class TestAveragePriceByRoomType(unittest.TestCase):
         air_bnb.csv
         """
         test_case = NYCAirbnbListings()
-        actual_result = test_case.average_price_by_room_type('air_bnb.csv')
+        filename = 'data/air_bnb.csv'
+        actual_result = test_case.average_price_by_room_type(filename)
         expected_result = {
             '"Private room"': 89.78,
             '"Entire home/apt"': 211.79,

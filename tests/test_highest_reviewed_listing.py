@@ -3,6 +3,7 @@ test_highest_reviewed_listing.py
 Test cases to verify test_highest_reviewed_listing.py
 Snehitha Mamidi
 created date: 04/26/2020
+updated date: 05/06/2020
 """
 import unittest
 from problems.snehitha import NYCAirbnbListings
@@ -19,7 +20,8 @@ class TestHighestReviewedListing(unittest.TestCase):
         listing1.csv
         """
         test_case = NYCAirbnbListings()
-        actual_result = test_case.highest_reviewed_listing('listing1.csv')
+        filename = 'data/listing1.csv'
+        actual_result = test_case.highest_reviewed_listing(filename)
         expected_result = {
             '"Brooklyn"': ['"Clean & quiet apt home by the park"',
                            '149', '"Kensington"']
@@ -32,7 +34,8 @@ class TestHighestReviewedListing(unittest.TestCase):
         listing2.csv"
         """
         test_case = NYCAirbnbListings()
-        actual_result = test_case.highest_reviewed_listing('listing2.csv')
+        filename = 'data/listing2.csv'
+        actual_result = test_case.highest_reviewed_listing(filename)
         expected_result = {
             '"Manhattan"': ['"Skylit Midtown Castle"', '225', '"Midtown"'],
             '"Brooklyn"': ['"Cozy Entire Floor of Brownstone"',
@@ -46,7 +49,8 @@ class TestHighestReviewedListing(unittest.TestCase):
         air_bnb.csv
         """
         test_case = NYCAirbnbListings()
-        actual_result = test_case.highest_reviewed_listing('air_bnb.csv')
+        filename = 'data/air_bnb.csv'
+        actual_result = test_case.highest_reviewed_listing(filename)
         expected_result = {
             '"Staten Island"': ['"D Private Che@p Room 2 Explore NYC"',
                                 '36', '"Tompkinsville"'],

@@ -3,9 +3,10 @@ snehitha.py
 Contains methods that will process the air_bnb dataset
 Snehitha Mamidi
 Created date : 4/18/2020
-updated date : 4/26/2020
+updated date : 5/06/2020
 """
 import statistics
+import csv
 
 
 class NYCAirbnbListings():
@@ -53,6 +54,12 @@ class NYCAirbnbListings():
                     if neighborhood_grp == key:
                         result_d[key] = [name] + [price] + [neighborhood]
         file_ref.close()
+        csv_file = open('output/highest_reviewed_listing.csv', 'w', newline='')
+        writer = csv.writer(csv_file)
+        writer.writerow(['neighborhood group', 'listing details'])
+        for neighborhood_group, listing_details in result_d.items():
+            writer.writerow([neighborhood_group, listing_details])
+        csv_file.close()
         return result_d
 
     @classmethod
@@ -63,9 +70,7 @@ class NYCAirbnbListings():
                 contains Airbnb listings.
         Returns Dictionary
            keys : string – room type
-           values : Dictionary
-                     keys : string – neighborhood group
-                     values : float – average price
+           values : integer – average price
         """
         file_ref = open(filename, 'r')
         prices_by_room_type_d = {}
@@ -83,6 +88,13 @@ class NYCAirbnbListings():
             avg_price = round(statistics.mean(str_to_int), 2)
             average_price_d[room_type] = avg_price
         file_ref.close()
+        csv_file = open('output/average_price_by_room_type.csv',
+                        'w', newline='')
+        writer = csv.writer(csv_file)
+        writer.writerow(['Room type', 'Average price'])
+        for room_type, average_price in average_price_d.items():
+            writer.writerow([room_type, average_price])
+        csv_file.close()
         return average_price_d
 
 
@@ -94,7 +106,7 @@ def main():
     # testing cases for highest_reviewed_listing()
     # test case 1 with one entry
     print('****Test case:1****')
-    filename = 'listing1.csv'
+    filename = 'data/listing1.csv'
     expected_result = {
         '"Brooklyn"': ['"Clean & quiet apt home by the park"',
                        '149', '"Kensington"']
@@ -105,7 +117,7 @@ def main():
     print(f'Expected: {expected_result}')
     # test case 2 with five entries
     print('\n****Test case:2****')
-    filename = 'listing2.csv'
+    filename = 'data/listing2.csv'
     expected_result = {
         '"Manhattan"': ['"Skylit Midtown Castle"', '225', '"Midtown"'],
         '"Brooklyn"': ['"Cozy Entire Floor of Brownstone"',
@@ -117,7 +129,7 @@ def main():
     print(f'Expected: {expected_result}')
     # test case 3 with whole dataset
     print('\n****Test case:3****')
-    filename = 'air_bnb.csv'
+    filename = 'data/air_bnb.csv'
     expected_result = {
         '"Staten Island"': ['"D Private Che@p Room 2 Explore NYC"',
                             '36', '"Tompkinsville"'],
@@ -133,7 +145,7 @@ def main():
     print(f'Expected: {expected_result}')
     # test case 4 to print info of heighest reviewed listing in Manhattan
     print('\n****Test case:4****')
-    filename = 'air_bnb.csv'
+    filename = 'data/air_bnb.csv'
     expected_result = ['"Great Bedroom in Manhattan"', '49', '"Harlem"']
     actual_result = NYCAirbnbListings.highest_reviewed_listing(filename)
     actual_result = actual_result['"Manhattan"']
@@ -145,7 +157,7 @@ def main():
 
     # test case 5 with one entry
     print('\n****Test case:5****')
-    filename = 'avgprice1.csv'
+    filename = 'data/avgprice1.csv'
     expected_result = {'"Private room"': 149}
     actual_result = NYCAirbnbListings.average_price_by_room_type(filename)
     print(f'average price by room type in {filename}')
@@ -153,7 +165,7 @@ def main():
     print(f'Expected: {expected_result}')
     # test case 6 with five entries
     print('\n****Test case:6****')
-    filename = 'avgprice2.csv'
+    filename = 'data/avgprice2.csv'
     expected_result = {
         '"Private room"': 149.5,
         '"Entire home/apt"': 131.33
@@ -164,7 +176,7 @@ def main():
     print(f'Expected: {expected_result}')
     # test case 7 with whole dataset
     print('\n****Test case:7****')
-    filename = 'air_bnb.csv'
+    filename = 'data/air_bnb.csv'
     expected_result = {
         '"Private room"': 89.78,
         '"Entire home/apt"': 211.79,
@@ -177,7 +189,7 @@ def main():
     # test case 8 to display the average price of Private room in each
     # neighborhood group
     print('\n****Test case:8****')
-    filename = 'air_bnb.csv'
+    filename = 'data/air_bnb.csv'
     expected_result = 89.78
     actual_result = NYCAirbnbListings.average_price_by_room_type(filename)
     actual_result = actual_result['"Private room"']

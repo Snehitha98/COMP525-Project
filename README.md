@@ -122,7 +122,6 @@ Three accumulation patterns:
    produce the listing details for each neighborhood_grp
 4. Return `result_d`
 
-
 #### More detailed logic steps to compute `list_of_reviews_d`
 * Iterate through `file_ref` to get hold of each line except the heading line
   with loop variable `line`
@@ -168,7 +167,11 @@ Three accumulation patterns:
                      * Concatenate name,price and neighborhood and set up value of `result_d`
                        to list with the same key.
 
-### closing the file
+#### writing output to csv file
+* Write **result_d** in a csv file so we can turn our output into a
+    dataframe and use Altair to construct a graph.
+    
+#### closing the file
   * close the openend file `file_ref`
   * Return `result_d`
   
@@ -184,7 +187,7 @@ def average_price_by_room_type(cls, filename):
               contains Airbnb listings.
       Returns Dictionary
          keys : string – room type
-         values : float - average price
+         values : integer - average price
       """
 ```
 #### Setting up first accumulator
@@ -240,6 +243,10 @@ str_to_int = list(map(int, prices_by_room_type_d[room_type]))
 avg_price = round(statistics.mean(str_to_int), 2)
 ```
 
-### closing the file
+#### writing output to csv file
+* Write **average_price_d** in a csv file so we can turn our output into a
+    dataframe and use Altair to construct a graph.
+    
+#### closing the file
 * close the openend file `file_ref`
 * Return `average_price_d`
