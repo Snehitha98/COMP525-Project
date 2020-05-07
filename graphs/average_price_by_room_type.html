@@ -2,19 +2,25 @@
 <html>
 <head>
   <style>
+    .vega-actions a {
+        margin-right: 12px;
+        color: #757575;
+        font-weight: normal;
+        font-size: 13px;
+    }
     .error {
         color: red;
     }
   </style>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@5"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@4.8.1"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@3.4.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@4"></script>
 </head>
 <body>
   <div id="vis"></div>
   <script>
     (function(vegaEmbed) {
-      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-74998e7168df217a86ed360863cb24e1"}, "mark": "bar", "encoding": {"color": {"type": "nominal", "field": "Room type"}, "tooltip": {"type": "nominal", "field": "Room type"}, "x": {"type": "quantitative", "field": "Average price", "sort": {"field": "Average price", "order": "ascending"}}, "y": {"type": "nominal", "field": "Room type"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-74998e7168df217a86ed360863cb24e1": [{"Room type": "\"Private room\"", "Average price": 89.78}, {"Room type": "\"Entire home/apt\"", "Average price": 211.79}, {"Room type": "\"Shared room\"", "Average price": 70.13}]}};
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"name": "data-74998e7168df217a86ed360863cb24e1"}, "mark": "bar", "encoding": {"color": {"type": "nominal", "field": "Room type"}, "tooltip": {"type": "nominal", "field": "Room type"}, "x": {"type": "quantitative", "field": "Average price", "sort": {"field": "Average price", "order": "ascending"}}, "y": {"type": "nominal", "field": "Room type"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json", "datasets": {"data-74998e7168df217a86ed360863cb24e1": [{"Room type": "\"Private room\"", "Average price": 89.78}, {"Room type": "\"Entire home/apt\"", "Average price": 211.79}, {"Room type": "\"Shared room\"", "Average price": 70.13}]}};
       var embedOpt = {"mode": "vega-lite"};
 
       function showError(el, error){
